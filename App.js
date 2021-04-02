@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import Card from './components/Card';
 
 export default function App() {
   return (
@@ -12,15 +13,9 @@ export default function App() {
         <Text style={styles.icon}>Ikonica</Text>
       </View>
       <ScrollView style={{ marginTop: 100 }}>
-        <View style={styles.card}>
-          <Text>Hello World!</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Hello World!</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Hello World!</Text>
-        </View>
+        {[1, 2, 3].map((number, i) => {
+          return <Card key={i} title={`Hello, I'm a card no. ${number}`} />;
+        })}
       </ScrollView>
     </View>
   );
@@ -32,21 +27,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8ff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  card: {
-    backgroundColor: '#fff',
-    width: 400,
-    height: 400,
-    margin: 5,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
   },
   header: {
     width: '100%',
